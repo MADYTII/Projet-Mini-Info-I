@@ -7,7 +7,7 @@ Ce projet est une implémentation d'une part d'un algorithme d'apprentissage sup
 ## Partie 1. Perceptron
 
 ### 1.1) Structure
-Tous les fichiers sont organisés dans un grand dossier perceptron qui comprends les sous-dossiers spécifiques :
+Tous les fichiers sont organisés dans un grand dossier **`perceptron/`** qui comprends les sous-dossiers spécifiques :
 
 - **`perceptron_include/`** : Contient les fichiers `.h` nécessaires pour définir les structures et déclarer les fonctions utilisées dans le projet.
 - **`perceptron_src/`** : Contient les fichiers `.c` implémentant les fonctions décrites dans les fichiers `.h`.
@@ -229,9 +229,11 @@ Pour effectuer une classification des patients :
 Pour compiler le projet, suivez ces étapes :
 
 1. Télécharger le dépôt complet "Projet-Mini-Info-I" et effectuer une extraction à partir du fichier zip obtenu.
-2. Définissez le dossier extrait comme répertoire courant avec la commande `cd` :
+2. Définissez ensuite, à l'intérieur du dossier extrait, soit le dossier **`perceptron/`** soit  celui **`kmeans/`**` comme répertoire courant à l'aide de la commande cd` :
    ```bash
-   cd chemin/vers/le/dossier/extrait
+   cd chemin/vers/le/dossier/extrait/kmeans
+   ou
+   cd chemin/vers/le/dossier/extrait/perceptron
    ```
 3. Utilisez le `Makefile` fourni. Les commandes suivantes sont disponibles :
 

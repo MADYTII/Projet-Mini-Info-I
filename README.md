@@ -221,7 +221,9 @@ Pour effectuer une classification des patients :
 5. Associer les clusters aux risques :
 
    ```c
-   decompte_true_false(lp, i  indice_membres_clusters[i]nombre_elements_cluster[i], &nbre_true, &nbre_false);
+   nbre_true = 0;
+   nbre_false = 0;
+   decompte_true_false(lp, indice_membres_clusters[i], nombre_elements_cluster[i], &nbre_true, &nbre_false);
    ```
 
 ## Partie 3. Compilation
@@ -229,7 +231,7 @@ Pour effectuer une classification des patients :
 Pour compiler le projet, suivez ces étapes :
 
 1. Télécharger le dépôt complet "Projet-Mini-Info-I" et effectuer une extraction à partir du fichier zip obtenu.
-2. Définissez ensuite, à l'intérieur du dossier extrait, soit le dossier **`perceptron/`** soit  celui **`kmeans/`**` comme répertoire courant à l'aide de la commande cd` :
+2. Définissez ensuite, à l'intérieur du dossier extrait, soit le dossier **`perceptron/`** soit  celui **`kmeans/`** comme répertoire courant à l'aide de la commande `cd` :
    ```bash
    cd chemin/vers/le/dossier/extrait/kmeans
    ou

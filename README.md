@@ -48,7 +48,7 @@ Voici un aperçu des fichiers principaux du projet avec des détails approfondis
     - **`normalisation`** :
       - Applique une transformation linéaire pour standardiser les caractéristiques des patients. La normalisation suit la formule :
         
-        $\` \[ 	ext{Valeur normalisée} = rac{	ext{Valeur} - 	ext{Min}}{	ext{Max} - 	ext{Min}} \] $
+        \[ 	ext{Valeur normalisée} = rac{	ext{Valeur} - 	ext{Min}}{	ext{Max} - 	ext{Min}} \]
         
       - Cette transformation garantit que les valeurs de chaque caractéristique sont redimensionnées dans un intervalle \([0, 1]\). Les caractéristiques booléennes ou catégoriques ne sont pas concernées par cette opération. Le processus s'effectue en deux étapes :
         1. Les valeurs des caractéristiques de l'ensemble d'entraînement sont normalisées en fonction de leurs bornes (min et max).
@@ -64,7 +64,7 @@ Voici un aperçu des fichiers principaux du projet avec des détails approfondis
       - Corrige les poids du perceptron pour réduire les erreurs de classification en ajustant chaque poids proportionnellement à l'erreur (différence entre la valeur prédite et la valeur attendue).
       - Suit la formule :
         
-        $\[ w_i = w_i + 	ext{taux d'apprentissage} 	imes (	ext{valeur attendue} - 	ext{valeur prédite}) 	imes x_i \]$
+         w_i = w_i + 	taux d'apprentissage 	imes (	ext{valeur attendue} - 	ext{valeur prédite}) 	imes x_i \]
       - Garantit que le modèle apprend de ses erreurs et s'améliore au fil des itérations.
     - **`perceptron_entrainement`** :
       - Entraîne le perceptron sur un ensemble d'entraînement en effectuant plusieurs itérations pour minimiser les erreurs de classification.

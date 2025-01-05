@@ -7,7 +7,7 @@ Ce projet est une implémentation d'une part d'un algorithme d'apprentissage sup
 ## Partie 1. Perceptron
 
 ### 1.1) Structure
-Tous les fichiers sont organisés dans un grand dossier **`perceptron/`** qui comprends les sous-dossiers spécifiques :
+Tous les fichiers sont organisés dans un grand dossier **`perceptron/`** qui comprend les sous-dossiers ci-dessous :
 
 - **`perceptron_include/`** : Contient les fichiers `.h` nécessaires pour définir les structures et déclarer les fonctions utilisées dans le projet.
 - **`perceptron_src/`** : Contient les fichiers `.c` implémentant les fonctions décrites dans les fichiers `.h`.
@@ -18,7 +18,7 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
 - **`types_struct.h`** :
 
   - Définit les structures principales utilisées dans cette partie :
-    - `patient` : représente les informations individuelles d'un patient, comprenant des attributs tels que l'âge, le sexe, le poids, la pression artérielle, la glycémie, le cholestérol et un indicateur de risque ("True" ou "False").
+    - `patient` : représente un patient et les informations individuelles d'un patient, comprenant des attributs tels que l'âge, le sexe, le poids, la pression artérielle, la glycémie, le cholestérol et un indicateur de risque ("True" ou "False").
     - `liste_patients` : regroupe une collection de patients pour permettre leur traitement en masse.
 
 - **`echantillonnage.h`**** et ****`echantillonnage.c`** :
@@ -31,6 +31,7 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
 - **`extraction_donnees.h`**** et ****`extraction_donnees.c`** :
 
   - Fournit des outils pour accéder rapidement aux données des patients :
+    - **`extraction_id_patient`** : récupère l'id d'un patient donnée
     - **`extraction_donnees`** : Récupère une caractéristique spécifique d'un patient en fonction de son identifiant (par exemple, 2 pour l'âge, 8 pour le cholestérol).
     - **`conversion_sex`** et **`conversion_risk`** : Convertissent respectivement le sexe et l'indicateur de risque en valeurs numériques pour les calculs.
 
@@ -43,7 +44,7 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
 - **`normalisation.h`**** et ****`normalisation.c`** :
 
   - Contient des fonctions pour préparer les données avant leur utilisation dans le perceptron :
-    - **`minimum`** et **`maximum`** :
+    - **`minimum`** et **`maximum`** : 
       - `minimum` calcule la plus petite valeur pour chaque caractéristique spécifiée dans une liste d'identifiants, en parcourant tous les patients d'un ensemble.
       - `maximum` calcule de manière similaire la valeur maximale. Ces fonctions sont essentielles pour déterminer les bornes nécessaires à la normalisation.
     - **`normalisation`** :
@@ -57,13 +58,17 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
         2. Les mêmes bornes (min et max) sont utilisées pour normaliser les valeurs de l'ensemble de test, assurant ainsi une cohérence entre les ensembles.
 
       - La normalisation est cruciale pour éviter que des caractéristiques ayant des plages de valeurs très différentes n'influencent de manière disproportionnée l'entraînement du modèle de perceptron.
+    - **`modifier_caracteristique_patient`**:
+      - Fonction qui modfie pour un patient, la valeur d'une caractéristique dont l'identifiant est précisé, par une valeur donnée, utilisée pour enregistrer les normalisations effectuées sur les données du patient
+
 
 - **`perceptron_utilitaires.h`**** et ****`perceptron_utilitaires.c`** :
 
   - Implémente l'algorithme du perceptron, un modèle de classification binaire :
     - **`activation`** :
-      - Calcule la sortie du modèle (1 ou 0) en effectuant le produit scalaire entre les poids (y compris le biais) et les valeurs des caractéristiques d'un patient.
-      - Permet de déterminer si un patient est classé comme à risque ou non en fonction de la sortie.
+      - Calcule la sortie du modèle en effectuant le produit scalaire entre les poids (y compris le biais) et les valeurs des caractéristiques d'un patient.
+      - Par convention, la fonction d'activation retourne 1, si le produit scalaire est positif et et 0 sinon.
+      -  Ceci permet de déterminer si un patient est classé comme à risque  ou non en fonction de la sortie, avec les équivalences suivantes : 1 pour True et 0 pour False.  
     - **`ajustement_poids`** :
       - Corrige les poids du perceptron pour réduire les erreurs de classification en ajustant chaque poids proportionnellement à l'erreur (différence entre la valeur prédite et la valeur attendue).
       - Garantit que le modèle apprend de ses erreurs et s'améliore au fil des itérations.
@@ -94,7 +99,7 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
 
 ### 2.1) Structure
 
-Tous les fichiers sont organisés dans un grand dossier kmeans qui comprends les sous-dossiers suivants:
+Tous les fichiers sont organisés dans un grand dossier kmeans qui comprend les sous-dossiers suivants:
 - **`kmeans_include/`** : Contient les fichiers `.h` nécessaires pour définir les structures et déclarer les fonctions utilisées dans le projet.
 - **`kmeans_src/`** : Contient les fichiers `.c` implémentant les fonctions décrites dans les fichiers `.h`.
 - **`kmeans_data/`** : Contient les fichier `patients.pengu` et "lifestyle.pengu", qui regroupent respctivement les données dur l'état de risque et les styles de vie des patients exploitées pour cette analyse.
@@ -113,26 +118,35 @@ Ci-dessous, un aperçu des fichiers principaux de cette implémentation de kmean
 
   - Définit les structures principales utilisées dans le projet :
     - `patient` : représente les informations individuelles d'un patient, comprenant des attributs tels que l'activité physique, la consommation d'alcool, et la qualité du sommeil.
-    - `liste_patients` : regroupe une collection de patients pour permettre leur traitement en masse.
+    - `liste_patients` : regroupe une collection de patients avec une capacité maximale donnée
 
 - **`file_handling.h`**\*\* et \*\***`file_handling.c`** :
 
   - Fournit des fonctions pour la gestion des fichiers :
     - `longueur_fichier` : Compte le nombre de lignes dans un fichier afin de déduire le nombre de patients.
-    - `charger_lifestyle` : Charge les caractéristiques de style de vie des patients depuis un fichier "lifestyle.pengu".
-    - `charger_risk` : Associe les informations sur l'état de risque des patients par lecture du fichier "patients.pengu".
+    - `id_risk` : Permet de collecter les collecter les identifiants des patients ainsi que leur état de risque à partir du fichier "patients.pengu" pour les stocker dans des tableaux.
+    - `charger_lifestyle` : Charge les caractéristiques de style de vie des patients depuis le fichier "lifestyle.pengu".
+    - `charger_risk` : Associe les informations sur l'état de risque des patients en utilisant les données stockées dans les tableaux générés à partir de id_risk.
+   
+- **`extraction_donnees.h`**** et ****`extraction_donnees.c`** :
+
+  - Fournit des outils pour accéder rapidement aux données des patients :
+    - **`conversion_risk`** : l'indicateur de risque en valeurs numériques (0, 1).
+    - **`extraction_donnees`** : Récupère une caractéristique spécifique d'un patient en fonction de son identifiant (par exemple, 2 pour physical_activity, 5 pour sleep_quality).
+      
+    
 
 - **`normalisation.h`**\*\* et \*\***`normalisation.c`** :
 
   - Contiennent des fonctions pour préparer les données avant leur utilisation dans l'algorithme K-means :
-    - `minimum_lp` et `maximum_lp` : Calculent respectivement les valeurs minimales et maximales de chacun des paramètres de style de vie.
-    - `normalisation` : Standardise les paramètres de style de vie des patients à l'aide des bornes min et max calculées précdemment.
+    - `minimum_lp` et `maximum_lp` : Calculent respectivement les valeurs minimales et maximales de chacun des paramètres de style de vie et les stocke dans des tableaux prévus à cet effet
+    - `normalisation` : Standardise les paramètres de style de vie des patients à l'aide des valeurs min et max calculées précédemment.
     - `denormaliser_centroides` : Restaure les coordonnées des centroides à leur échelle d'origine pour faciliter les analyses.
 
 - **`kmeans_utilitaires.h`**\*\* et \*\***`kmeans_utilitaires.c`** :
 
   - Implémentent  l'algorithme K-means et des fonctions auxiliaires :
-    - `entier_aléatoire` : permet la sélection aléatoire de patients qui représenteront des centroides initiaux.
+    - `entier_aléatoire` : permet la sélection aléatoire de patients (ici représentés par leur position dans la structure de type liste_patients qui les contient) qui représenteront des centroides initiaux.
     - `distance_euclidienne` : Calcule la distance entre deux points (patients) de l'espace de classification.
     - `nouveaux_centroides` : Calcule les nouveaux centroides pour chaque cluster.
     - `k_means` : Implémente l’algorithme K-means (calcul de distances aux centroides pour chaque patient, assignation d'un patient à un cluster, recalcul de nouveaux centroides jusqu'à ce que la convergence où le nombre maximum d'itérations imposé soit atteint).
@@ -142,7 +156,8 @@ Ci-dessous, un aperçu des fichiers principaux de cette implémentation de kmean
   - Fournit des outils pour analyser les clusters formés :
     - `decompte_true_false` : Compte les patients à risque "True" et ceux à risque "False" dans chaque cluster.
     - `etat_risque_cluster` : Évalue l'homogénéité des clusters en termes de risques associés.
-
+    - `nom_caracteristique` : Permet d'afficher le nom d'une caractéristique dont l'identifiant est précisé, sert à catégoriser les valeurs des coordonnées des centroides en fin de classification
+      
 - **`main_kmeans.c`** :
 
   - Le point d'entrée du programme :
@@ -162,7 +177,7 @@ Ci-dessous, un aperçu des fichiers principaux de cette implémentation de kmean
 
 Pour compiler le projet, suivez ces étapes :
 
-1. Télécharger le dépôt complet "Projet_Mini_Info_I" et effectuer une extraction à partir du fichier zip obtenu.
+1. Télécharger le dépôt complet "Projet_Mini_Info_I" sous format ZIP et effectuer une extraction à partir du fichier zip obtenu.
 2. Définissez ensuite, à l'intérieur du dossier extrait, soit le dossier **`perceptron/`** soit  celui **`kmeans/`** comme répertoire courant à l'aide de la commande `cd` :
    ```bash
    cd chemin/vers/le/dossier/extrait/kmeans

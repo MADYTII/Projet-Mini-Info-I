@@ -228,23 +228,23 @@ Pour effectuer une classification des patients :
 
 Pour compiler le projet, suivez ces étapes :
 
-1. Téléchargez et extrayez le dossier du programme (s'il est fourni sous forme d'archive).
+1. Télécharger le dépôt complet "Projet-Mini-Info-I" et effectuer une extraction à partir du fichier zip obtenu.
 2. Définissez le dossier extrait comme répertoire courant avec la commande `cd` :
    ```bash
-   cd chemin/vers/le/dossier
+   cd chemin/vers/le/dossier/extrait
    ```
 3. Utilisez le `Makefile` fourni. Les commandes suivantes sont disponibles :
 
-- `make` : Exécute la commande `all` par défaut, qui compile les fichiers, génère l'exécutable, exécute le programme principal et nettoie les fichiers temporaires.
+- `make` : Exécute la commande `all` par défaut, qui compile les fichiers, génère l'exécutable, exécute le programme principal (grâce à la commande run) et nettoie les fichiers temporaires (clean).
 - `make run` : Compile le projet et exécute automatiquement l'exécutable principal.
 - `make clean` : Supprime les fichiers intermédiaires et l'exécutable pour nettoyer le répertoire.
-- `make all` : Effectue la compilation, exécute le programme principal, puis nettoie automatiquement les fichiers temporaires.
 
 **Exemple d'utilisation :**
-
+Le répertoire courant ayant été défini dans le dossier issu de l'extraction consuite à partir du fichier.zip
+Tapez la commande ci-dessous : 
 ```bash
 make
-# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement le projet.
+# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement les fichiers.
 ```
 
 

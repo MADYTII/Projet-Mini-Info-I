@@ -4,14 +4,10 @@
 
 Ce projet est une implémentation d'un perceptron pour la classification de patients en fonction de diverses caractéristiques médicales. Il inclut des outils pour l'extraction de données, leur normalisation, et la gestion des structures de patients. Il s'agit d'un projet académique visant à démontrer une maîtrise des concepts algorithmiques et de programmation structurée.
 
-## Structure du projet
+## Partie 1. Perceptron
 
-### `patients.pengu`
-
-- Ce fichier contient les données brutes des patients utilisées comme entrée pour les algorithmes. Chaque ligne représente un patient et inclut ses caractéristiques, telles que l'âge, le sexe, le poids, la pression artérielle, la glycémie, le cholestérol et un indicateur de risque ("True" ou "False").
-- Le programme utilise ces données pour l'entraînement et le test du perceptron, garantissant ainsi une évaluation précise des performances du modèle.
-
-Tous les fichiers sont organisés dans des dossiers spécifiques :
+### `Structure
+Tous les fichiers sont organisés dans un grand dossier perceptron qui comprends les sous-dossiers spécifiques :
 
 - **`perceptron_include/`** : Contient les fichiers `.h` nécessaires pour définir les structures et déclarer les fonctions utilisées dans le projet.
 - **`perceptron_src/`** : Contient les fichiers `.c` implémentant les fonctions décrites dans les fichiers `.h`.
@@ -54,8 +50,6 @@ Voici un aperçu des fichiers principaux du projet:
       - Applique une transformation linéaire pour standardiser les caractéristiques des patients. La normalisation suit la formule :
 
         Valeur normalisée = (Valeur - Min) / (Max - Min)
-
-
 
         Cette transformation garantit que les valeurs de chaque caractéristique sont redimensionnées dans un intervalle . Les caractéristiques booléennes ou catégoriques ne sont pas concernées par cette opération. Le processus s'effectue en deux étapes :
 

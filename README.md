@@ -17,7 +17,7 @@ Tous les fichiers sont organisés dans des dossiers spécifiques :
 - **`perceptron_src/`** : Contient les fichiers `.c` implémentant les fonctions décrites dans les fichiers `.h`.
 - **`perceptron_data/`** : Contient le fichier `patients.pengu`, qui regroupe les données des patients utilisées comme entrée pour les algorithmes.
 
-Voici un aperçu des fichiers principaux du projet avec des détails approfondis sur leurs fonctions clés :
+Voici un aperçu des fichiers principaux du projet:
 
 - **`types_struct.h`** :
 
@@ -72,9 +72,6 @@ Voici un aperçu des fichiers principaux du projet avec des détails approfondis
       - Permet de déterminer si un patient est classé comme à risque ou non en fonction de la sortie.
     - **`ajustement_poids`** :
       - Corrige les poids du perceptron pour réduire les erreurs de classification en ajustant chaque poids proportionnellement à l'erreur (différence entre la valeur prédite et la valeur attendue).
-      - Suit la formule :
-
-
       - Garantit que le modèle apprend de ses erreurs et s'améliore au fil des itérations.
     - **`perceptron_entrainement`** :
       - Entraîne le perceptron sur un ensemble d'entraînement en effectuant plusieurs itérations pour minimiser les erreurs de classification.

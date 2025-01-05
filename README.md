@@ -1,5 +1,7 @@
 # README
 
+### Pauline COUTE  - Salah BOUCHELAGHEM - Maurel Dylane TCHUISSE II
+
 ## Introduction
 
 Ce projet est une implémentation d'une part d'un algorithme d'apprentissage supervisé **`perceptron`**  pour la prédiction de l'étét de risque à une maladie de patients en fonction de données cliniques, et d'autre part d'un algorithme de classification non-supervisé  **`k-means`** pour l'étude de l'existence d'une corrélation entre l'état de risque des patients et des caractéristiques définissant leur style de vie.

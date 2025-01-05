@@ -83,29 +83,6 @@ Voici un aperçu des fichiers principaux du projet:
     - Normalise les données pour s'assurer qu'elles sont prêtes pour le traitement par le perceptron.
     - Entraîne et teste le perceptron sur différents ensembles de caractéristiques, affichant les résultats.
 
-## Compilation
-
-Pour compiler le projet, suivez ces étapes :
-
-1. Téléchargez et extrayez le dossier du programme (s'il est fourni sous forme d'archive).
-2. Définissez le dossier extrait comme répertoire courant avec la commande `cd` :
-   ```bash
-   cd chemin/vers/le/dossier
-   ```
-3. Utilisez le `Makefile` fourni. Les commandes suivantes sont disponibles :
-
-- `make` : Exécute la commande `all` par défaut, qui compile les fichiers, génère l'exécutable, exécute le programme principal et nettoie les fichiers temporaires.
-- `make run` : Compile le projet et exécute automatiquement l'exécutable principal.
-- `make clean` : Supprime les fichiers intermédiaires et l'exécutable pour nettoyer le répertoire.
-- `make all` : Effectue la compilation, exécute le programme principal, puis nettoie automatiquement les fichiers temporaires.
-
-**Exemple d'utilisation :**
-
-```bash
-make
-# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement le projet.
-```
-
 ## Exécution
 
 Une fois le projet compilé, le programme principal est exécuté automatiquement par la commande `make` (qui exécute la cible `all`). Cela inclut la compilation, l'exécution du programme principal et le nettoyage des fichiers temporaires, conformément au fonctionnement décrit dans le `Makefile`.
@@ -147,6 +124,153 @@ Pour effectuer une classification des patients :
    ```c
    double taux_erreur = perceptron_test(lp, nbre_patients, liste_id_caract, nbre_caract, poids_biais);
    ```
+
+
+
+## Partie 2. Kmeans
+
+**`constantes.h`** :
+
+- Définit les constantes globales utilisées dans le projet :
+
+  - `NBMAX_patients` : Le nombre maximum de patients supporté (8000).
+  - `NBMAX_membres_cluster` : Le nombre maximum de patients par cluster (5000).
+  - `nbre_param` : La dimension de l'espace de classification, correspondant au nombre de paramètres de style de vie (4).
+
+- **`types_struct.h`** :
+
+  - Définit les structures principales utilisées dans le projet :
+    - `patient` : représente les informations individuelles d'un patient, comprenant des attributs tels que l'activité physique, la consommation d'alcool, et la qualité du sommeil.
+    - `liste_patients` : regroupe une collection de patients pour permettre leur traitement en masse.
+
+- **`file_handling.h`**\*\* et \*\***`file_handling.c`** :
+
+  - Fournit des fonctions pour la gestion des fichiers :
+    - `longueur_fichier` : Compte le nombre de lignes dans un fichier afin de déduire le nombre de patients.
+    - `charger_lifestyle` : Charge les caractéristiques de style de vie des patients depuis un fichier "lifestyle.pengu".
+    - `charger_risk` : Associe les informations sur l'état de risque des patients par lecture du fichier "patients.pengu".
+
+- **`normalisation.h`**\*\* et \*\***`normalisation.c`** :
+
+  - Contiennent des fonctions pour préparer les données avant leur utilisation dans l'algorithme K-means :
+    - `minimum_lp` et `maximum_lp` : Calculent respectivement les valeurs minimales et maximales de chacun des paramètres de style de vie.
+    - `normalisation` : Standardise les paramètres de style de vie des patients à l'aide des bornes min et max calculées précdemment.
+    - `denormaliser_centroides` : Restaure les coordonnées des centroides à leur échelle d'origine pour faciliter les analyses.
+
+- **`kmeans_utilitaires.h`**\*\* et \*\***`kmeans_utilitaires.c`** :
+
+  - Implémentent  l'algorithme K-means et des fonctions auxiliaires :
+    - `entier_aléatoire` : permet la sélection aléatoire de patients qui représenteront des centroides initiaux.
+    - `distance_euclidienne` : Calcule la distance entre deux points (patients) de l'espace de classification.
+    - `nouveaux_centroides` : Calcule les nouveaux centroides pour chaque cluster.
+    - `k_means` : Implémente l’algorithme K-means (calcul de distances aux centroides pour chaque patient, assignation d'un patient à un cluster, recalcul de nouveaux centroides jusqu'à ce que la convergence où le nombre maximum d'itérations imposé soit atteint).
+
+- **`analyse_cluster.h`**\*\* et \*\***`analyse_cluster.c`** :
+
+  - Fournit des outils pour analyser les clusters formés :
+    - `decompte_true_false` : Compte les patients à risque "True" et ceux à risque "False" dans chaque cluster.
+    - `etat_risque_cluster` : Évalue l'homogénéité des clusters en termes de risques associés.
+
+- **`main_kmeans.c`** :
+
+  - Le point d'entrée du programme :
+    - Charge les données des patients.
+    - Normalise les données pour s'assurer qu'elles sont prêtes pour le traitement par l'algorithme K-means.
+    - Applique l'algorithme et affiche les résultats d'analyse des clusters.
+
+## Compilation
+
+Pour compiler le projet, suivez ces étapes :
+
+1. Téléchargez et extrayez le dossier du programme (s'il est fourni sous forme d'archive).
+2. Définissez le dossier extrait comme répertoire courant avec la commande `cd` :
+   ```bash
+   cd chemin/vers/le/dossier/kmeans
+   ```
+3. Utilisez le `Makefile` fourni. Les commandes suivantes sont disponibles :
+
+- `make` : Exécute la commande `all` par défaut, qui compile les fichiers, génère l'exécutable, exécute le programme principal et nettoie les fichiers temporaires.
+- `make run` : Compile le projet et exécute automatiquement l'exécutable principal.
+- `make clean` : Supprime les fichiers intermédiaires et l'exécutable pour nettoyer le répertoire.
+- `make all` : Effectue la compilation, exécute le programme principal, puis nettoie automatiquement les fichiers temporaires.
+
+**Exemple d'utilisation :**
+
+```bash
+make
+# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement le projet.
+```
+
+## Exécution
+
+Une fois le projet compilé, le programme principal est exécuté automatiquement par la commande `make` (qui exécute la cible `all`). Cela inclut la compilation, l'exécution du programme principal et le nettoyage des fichiers temporaires, conformément au fonctionnement décrit dans le `Makefile`.
+
+Le programme chargera automatiquement les données des patients à partir des fichiers `patients.pengu` et `lifestyle.pengu`, appliquera l'algorithme K-means pour regrouper les patients en clusters et analysera les résultats.
+
+## Fonctionnalités
+
+- **Lecture des données** : Lecture des caractéristiques des patients depuis un fichier texte structuré.
+- **Normalisation des données** : Calcul des min/max et standardisation des valeurs pour une meilleure convergence.
+- **Classification avec K-means** : Algorithme d'entraînement pour regrouper les patients en clusters homogènes.
+- **Analyse des clusters** : Exploration des clusters pour identifier leur homogénéité et leur corrélation avec les risques.
+
+## Exemple d'utilisation
+
+Pour effectuer une classification des patients :
+
+1. Charger les données :
+
+   ```c
+   liste_patients lp;
+   charger_lifestyle(&lp, "kmeans_data/lifestyle.pengu", nbre_patients);
+   ```
+
+2. Normaliser les données :
+
+   ```c
+   normalisation(lp, nbre_patients, liste_id_caract, nbre_caract, tableau_minimum, tableau_maximum, param_lifestyle_norm);
+   ```
+
+3. Appliquer l'algorithme K-means :
+
+   ```c
+   k_means(param_lifestyle_norm, nbre_patients, coordonnees_centroides, indice_membres_clusters, nombre_elements_cluster, K, Nbre_iterations, seuil);
+   ```
+
+4. Analyser les clusters formés :
+
+   ```c
+   analyse_clusters(lp, nbre_patients, indice_membres_clusters, K);
+   ```
+
+5. Associer les clusters aux risques :
+
+   ```c
+   decompte_true_false(lp, i  indice_membres_clusters[i]nombre_elements_cluster[i], &nbre_true, &nbre_false);
+   ```
+
+## Partie 3. Compilation
+
+Pour compiler le projet, suivez ces étapes :
+
+1. Téléchargez et extrayez le dossier du programme (s'il est fourni sous forme d'archive).
+2. Définissez le dossier extrait comme répertoire courant avec la commande `cd` :
+   ```bash
+   cd chemin/vers/le/dossier
+   ```
+3. Utilisez le `Makefile` fourni. Les commandes suivantes sont disponibles :
+
+- `make` : Exécute la commande `all` par défaut, qui compile les fichiers, génère l'exécutable, exécute le programme principal et nettoie les fichiers temporaires.
+- `make run` : Compile le projet et exécute automatiquement l'exécutable principal.
+- `make clean` : Supprime les fichiers intermédiaires et l'exécutable pour nettoyer le répertoire.
+- `make all` : Effectue la compilation, exécute le programme principal, puis nettoie automatiquement les fichiers temporaires.
+
+**Exemple d'utilisation :**
+
+```bash
+make
+# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement le projet.
+```
 
 ## Licence
 

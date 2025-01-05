@@ -10,7 +10,7 @@ int main(){
 
 //Etape 1. Collecte des données sur le style de vie et le niveau de risque des patients
     /*Etape 1-1: Récupération des identifiants des patients et de leur risque dans le fichier patients.pengu*/
-    char *nom_fichier1 = "patients.pengu"; // Fichier  patients.pengu
+    char *nom_fichier1 = "kmeans_data/patients.pengu"; // Fichier  patients.pengu
     int nombre_patients_risk = longueur_fichier(nom_fichier1) - 1; // Nombre de patients dans patients.pengu
     int id_patients_risk[nombre_patients_risk];            // Tableau contenant dans l'ordre les identifiants des patients de patients.pengu
     char risques_patients_risk[nombre_patients_risk][6];   // Tableau contenant dans l'ordre les risques des patients de patients.pengu
@@ -20,7 +20,7 @@ int main(){
 
     liste_patients lp;  // initialisation de la structure devant contenir les patients de lifestyle.pengu
     // Style de vie
-    char *nom_fichier2 = "lifestyle.pengu"; // Fichier sur le style de vie
+    char *nom_fichier2 = "kmeans_data/lifestyle.pengu"; // Fichier sur le style de vie
     int nbre_patients_lifestyle = longueur_fichier(nom_fichier2) - 1; // Nombre de patients dans le fichier "lifestyle.pengu"
     charger_lifestyle(&lp, nom_fichier2, nbre_patients_lifestyle);  //remplissage des données sur le style de vie
     // Etat de risque

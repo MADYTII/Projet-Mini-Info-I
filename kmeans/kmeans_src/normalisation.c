@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "normalisation.h"
 #include "extraction_donnees.h"
 
@@ -80,7 +81,12 @@ void normalisation(liste_patients lp, int nombre_patients_lp, int liste_id_carac
 void denormaliser_centroides(double coordonnees_centroides[][nbre_param], double tableau_minimum[], double tableau_maximum[], int K){
     for(int i = 0; i < K; i++){
         for (int j = 0; j < nbre_param; j++){
-            coordonnees_centroides[i][j] = coordonnees_centroides[i][j] * (tableau_maximum[j] - tableau_minimum[j]) + tableau_minimum[j];
+            if (tableau_maximum[j] - tableau_minimum[j] !=0){  // Pour éviter de diviser par zéro
+                coordonnees_centroides[i][j] = coordonnees_centroides[i][j] * (tableau_maximum[j] - tableau_minimum[j]) + tableau_minimum[j];
+            }
+            else{
+                printf("division impossible, la max et le min sont égaux\n");
+            }
         }
     }
 }

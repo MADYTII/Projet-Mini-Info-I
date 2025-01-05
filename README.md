@@ -6,18 +6,18 @@ Ce projet est une implémentation d'un perceptron pour la classification de pati
 
 ## Partie 1. Perceptron
 
-### Structure
+### 1.1) Structure
 Tous les fichiers sont organisés dans un grand dossier perceptron qui comprends les sous-dossiers spécifiques :
 
 - **`perceptron_include/`** : Contient les fichiers `.h` nécessaires pour définir les structures et déclarer les fonctions utilisées dans le projet.
 - **`perceptron_src/`** : Contient les fichiers `.c` implémentant les fonctions décrites dans les fichiers `.h`.
 - **`perceptron_data/`** : Contient le fichier `patients.pengu`, qui regroupe les données des patients utilisées comme entrée pour les algorithmes.
 
-Voici un aperçu des fichiers principaux du projet:
+Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
 
 - **`types_struct.h`** :
 
-  - Définit les structures principales utilisées dans le projet :
+  - Définit les structures principales utilisées dans cette partie :
     - `patient` : représente les informations individuelles d'un patient, comprenant des attributs tels que l'âge, le sexe, le poids, la pression artérielle, la glycémie, le cholestérol et un indicateur de risque ("True" ou "False").
     - `liste_patients` : regroupe une collection de patients pour permettre leur traitement en masse.
 
@@ -83,20 +83,14 @@ Voici un aperçu des fichiers principaux du projet:
     - Normalise les données pour s'assurer qu'elles sont prêtes pour le traitement par le perceptron.
     - Entraîne et teste le perceptron sur différents ensembles de caractéristiques, affichant les résultats.
 
-## Exécution
-
-Une fois le projet compilé, le programme principal est exécuté automatiquement par la commande `make` (qui exécute la cible `all`). Cela inclut la compilation, l'exécution du programme principal et le nettoyage des fichiers temporaires, conformément au fonctionnement décrit dans le `Makefile`.
-
-Le programme chargera automatiquement les données des patients à partir du fichier `patients.pengu` et appliquera les algorithmes du perceptron pour la classification et l'évaluation des risques. à partir du fichier `patients.pengu` et appliquera les algorithmes du perceptron pour la classification et l'évaluation des risques.
-
-## Fonctionnalités
+## 1.2) Fonctionnalités
 
 - **Lecture des données** : Lecture des patients depuis un fichier texte structurant.
 - **Extraction de données** : Accès rapide à des caractéristiques individuelles ou des statistiques.
 - **Normalisation des données** : Calcul des min/max et standardisation des valeurs pour les algorithmes de classification.
 - **Classification avec perceptron** : Algorithmes d'entraînement et de test pour classer les patients en fonction de leurs risques.
 
-## Exemple d'utilisation
+## 1.3) Exemple d'utilisation
 
 Pour effectuer une classification des patients :
 
@@ -128,6 +122,16 @@ Pour effectuer une classification des patients :
 
 
 ## Partie 2. Kmeans
+
+
+### 2.1) Structure
+
+Tous les fichiers sont organisés dans un grand dossier kmeans qui comprends les sous-dossiers suivants:
+- **`kmeans_include/`** : Contient les fichiers `.h` nécessaires pour définir les structures et déclarer les fonctions utilisées dans le projet.
+- **`kmeans_src/`** : Contient les fichiers `.c` implémentant les fonctions décrites dans les fichiers `.h`.
+- **`kmeans_data/`** : Contient les fichier `patients.pengu` et "lifestyle.pengu", qui regroupent respctivement les données dur l'état de risque et les styles de vie des patients exploitées pour cette analyse.
+
+Ci-dessous, un aperçu des fichiers principaux de cette implémentation de kmeans:
 
 **`constantes.h`** :
 
@@ -178,43 +182,14 @@ Pour effectuer une classification des patients :
     - Normalise les données pour s'assurer qu'elles sont prêtes pour le traitement par l'algorithme K-means.
     - Applique l'algorithme et affiche les résultats d'analyse des clusters.
 
-## Compilation
-
-Pour compiler le projet, suivez ces étapes :
-
-1. Téléchargez et extrayez le dossier du programme (s'il est fourni sous forme d'archive).
-2. Définissez le dossier extrait comme répertoire courant avec la commande `cd` :
-   ```bash
-   cd chemin/vers/le/dossier/kmeans
-   ```
-3. Utilisez le `Makefile` fourni. Les commandes suivantes sont disponibles :
-
-- `make` : Exécute la commande `all` par défaut, qui compile les fichiers, génère l'exécutable, exécute le programme principal et nettoie les fichiers temporaires.
-- `make run` : Compile le projet et exécute automatiquement l'exécutable principal.
-- `make clean` : Supprime les fichiers intermédiaires et l'exécutable pour nettoyer le répertoire.
-- `make all` : Effectue la compilation, exécute le programme principal, puis nettoie automatiquement les fichiers temporaires.
-
-**Exemple d'utilisation :**
-
-```bash
-make
-# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement le projet.
-```
-
-## Exécution
-
-Une fois le projet compilé, le programme principal est exécuté automatiquement par la commande `make` (qui exécute la cible `all`). Cela inclut la compilation, l'exécution du programme principal et le nettoyage des fichiers temporaires, conformément au fonctionnement décrit dans le `Makefile`.
-
-Le programme chargera automatiquement les données des patients à partir des fichiers `patients.pengu` et `lifestyle.pengu`, appliquera l'algorithme K-means pour regrouper les patients en clusters et analysera les résultats.
-
-## Fonctionnalités
+## 2.2) Fonctionnalités
 
 - **Lecture des données** : Lecture des caractéristiques des patients depuis un fichier texte structuré.
 - **Normalisation des données** : Calcul des min/max et standardisation des valeurs pour une meilleure convergence.
 - **Classification avec K-means** : Algorithme d'entraînement pour regrouper les patients en clusters homogènes.
 - **Analyse des clusters** : Exploration des clusters pour identifier leur homogénéité et leur corrélation avec les risques.
 
-## Exemple d'utilisation
+## 2.3) Exemple d'utilisation
 
 Pour effectuer une classification des patients :
 
@@ -272,7 +247,5 @@ make
 # La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement le projet.
 ```
 
-## Licence
 
-Ce projet est libre de droits. Utilisez-le et modifiez-le selon vos besoins.
 

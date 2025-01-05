@@ -1,6 +1,6 @@
 # README
 
-### Pauline COUTE  - Salah BOUCHELAGHEM - Maurel Dylane TCHUISSE II
+### Auteurs : Pauline COUTE  - Salah BOUCHELAGHEM - Maurel Dylane TCHUISSE II
 
 ## Introduction
 

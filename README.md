@@ -244,7 +244,7 @@ Le répertoire courant ayant été défini dans le dossier issu de l'extraction 
 Tapez la commande ci-dessous : 
 ```bash
 make
-# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement les fichiers.
+# La commande 'make' exécute 'all', qui compile, exécute et nettoie automatiquement les fichiers temporaires.
 ```
 
 

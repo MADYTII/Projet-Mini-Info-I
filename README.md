@@ -6,7 +6,7 @@ Ce projet est une implémentation d'un perceptron pour la classification de pati
 
 ## Partie 1. Perceptron
 
-### `Structure
+### Structure
 Tous les fichiers sont organisés dans un grand dossier perceptron qui comprends les sous-dossiers spécifiques :
 
 - **`perceptron_include/`** : Contient les fichiers `.h` nécessaires pour définir les structures et déclarer les fonctions utilisées dans le projet.

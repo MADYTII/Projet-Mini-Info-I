@@ -73,7 +73,6 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
       - Utilise l'algorithme d'ajustement des poids pour optimiser les coefficients du modèle.
     - **`perceptron_test`** :
       - Évalue les performances du perceptron sur un ensemble de test en calculant le taux d'erreur, défini comme le ratio entre le nombre de patients mal classés et le nombre total de patients.
-      - Génère des statistiques précises sur l'efficacité du modèle pour des ensembles de données inconnues.
 
 - **`main_perceptron.c`** :
 
@@ -89,37 +88,6 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
 - **Extraction de données** : Accès rapide à des caractéristiques individuelles ou des statistiques.
 - **Normalisation des données** : Calcul des min/max et standardisation des valeurs pour les algorithmes de classification.
 - **Classification avec perceptron** : Algorithmes d'entraînement et de test pour classer les patients en fonction de leurs risques.
-
-## 1.3) Exemple d'utilisation
-
-Pour effectuer une classification des patients :
-
-1. Charger les données :
-
-   ```c
-   liste_patients lp;
-   charger_fichier(&lp, "patients.pengu", nbre_patients);
-   ```
-
-2. Normaliser les données :
-
-   ```c
-   normalisation(&lp, nbre_patients, liste_id_caract, nbre_caract, tableau_min, tableau_max);
-   ```
-
-3. Entraîner le perceptron :
-
-   ```c
-   perceptron_entrainement(lp, nbre_patients, liste_id_caract, nbre_caract, poids_biais, taux_apprentissage, nb_iterations);
-   ```
-
-4. Tester le modèle :
-
-   ```c
-   double taux_erreur = perceptron_test(lp, nbre_patients, liste_id_caract, nbre_caract, poids_biais);
-   ```
-
-
 
 ## Partie 2. Kmeans
 
@@ -189,42 +157,6 @@ Ci-dessous, un aperçu des fichiers principaux de cette implémentation de kmean
 - **Classification avec K-means** : Algorithme d'entraînement pour regrouper les patients en clusters homogènes.
 - **Analyse des clusters** : Exploration des clusters pour identifier leur homogénéité et leur corrélation avec les risques.
 
-## 2.3) Exemple d'utilisation
-
-Pour effectuer une classification des patients :
-
-1. Charger les données :
-
-   ```c
-   liste_patients lp;
-   charger_lifestyle(&lp, "kmeans_data/lifestyle.pengu", nbre_patients);
-   ```
-
-2. Normaliser les données :
-
-   ```c
-   normalisation(lp, nbre_patients, liste_id_caract, nbre_caract, tableau_minimum, tableau_maximum, param_lifestyle_norm);
-   ```
-
-3. Appliquer l'algorithme K-means :
-
-   ```c
-   k_means(param_lifestyle_norm, nbre_patients, coordonnees_centroides, indice_membres_clusters, nombre_elements_cluster, K, Nbre_iterations, seuil);
-   ```
-
-4. Analyser les clusters formés :
-
-   ```c
-   analyse_clusters(lp, nbre_patients, indice_membres_clusters, K);
-   ```
-
-5. Associer les clusters aux risques :
-
-   ```c
-   nbre_true = 0;
-   nbre_false = 0;
-   decompte_true_false(lp, indice_membres_clusters[i], nombre_elements_cluster[i], &nbre_true, &nbre_false);
-   ```
 
 ## Partie 3. Compilation
 

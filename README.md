@@ -177,16 +177,16 @@ Ci-dessous, un aperçu des fichiers principaux de cette implémentation de kmean
 
 ## Partie 3. Compilation
 
-Pour compiler le projet, suivez ces étapes :
+Pour compiler le projet, bien vouloir suivre ces étapes :
 
 1. Télécharger le dépôt complet "Projet_Mini_Info_I" sous format ZIP et effectuer une extraction à partir du fichier zip obtenu.
-2. Définissez ensuite, à l'intérieur du dossier extrait, soit le dossier **`perceptron/`** soit  celui **`kmeans/`** comme répertoire courant à l'aide de la commande `cd` :
+2. Définir ensuite, à l'intérieur du dossier extrait, soit le dossier **`perceptron/`** soit  celui **`kmeans/`** comme répertoire courant à l'aide de la commande `cd` :
    ```bash
    cd chemin/vers/le/dossier/extrait/kmeans
    ou
    cd chemin/vers/le/dossier/extrait/perceptron
    ```
-3. Utilisez le `Makefile` fourni. Les commandes suivantes sont disponibles :
+3. Utiliser le `Makefile` fourni. Les commandes suivantes sont disponibles :
 
 - `make` : Exécute la commande `all` par défaut, qui compile les fichiers, génère l'exécutable, exécute le programme principal (grâce à la commande run) et nettoie les fichiers temporaires (clean).
 - `make run` : Compile le projet et exécute automatiquement l'exécutable principal.

@@ -31,7 +31,7 @@ Voici un aperçu des fichiers principaux de cette implémentation de perceptron:
 - **`extraction_donnees.h`**** et ****`extraction_donnees.c`** :
 
   - Fournit des outils pour accéder rapidement aux données des patients :
-    - **`extraction_id_patient`** : récupère l'id d'un patient donnée
+    - **`extraction_id_patient`** : récupère l'id d'un patient donné
     - **`extraction_donnees`** : Récupère une caractéristique spécifique d'un patient en fonction de son identifiant (par exemple, 2 pour l'âge, 8 pour le cholestérol).
     - **`conversion_sex`** et **`conversion_risk`** : Convertissent respectivement le sexe et l'indicateur de risque en valeurs numériques pour les calculs.
 

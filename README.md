@@ -162,7 +162,7 @@ Ci-dessous, un aperçu des fichiers principaux de cette implémentation de kmean
 
 Pour compiler le projet, suivez ces étapes :
 
-1. Télécharger le dépôt complet "Projet-Mini-Info-I" et effectuer une extraction à partir du fichier zip obtenu.
+1. Télécharger le dépôt complet "Projet_Mini_Info_I" et effectuer une extraction à partir du fichier zip obtenu.
 2. Définissez ensuite, à l'intérieur du dossier extrait, soit le dossier **`perceptron/`** soit  celui **`kmeans/`** comme répertoire courant à l'aide de la commande `cd` :
    ```bash
    cd chemin/vers/le/dossier/extrait/kmeans

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Ce projet est une implémentation d'un perceptron pour la classification de patients en fonction de diverses caractéristiques médicales. Il inclut des outils pour l'extraction de données, leur normalisation, et la gestion des structures de patients. Il s'agit d'un projet académique visant à démontrer une maîtrise des concepts algorithmiques et de programmation structurée.
+Ce projet est une implémentation d'une part d'un algorithme d'apprentissage supervisé **`perceptron`**  pour la prédiction de l'étét de risque à une maladie de patients en fonction de données cliniques, et d'autre part d'un algorithme de classification non-supervisé  **`k-means`** pour l'étude de l'existence d'une corrélation entre l'état de risque des patients et des caractéristiques définissant leur style de vie.
 
 ## Partie 1. Perceptron
 
